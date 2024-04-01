@@ -35,6 +35,7 @@ app.use(
 	})
 )
 //cloudinary connection
+console.log("Trying to connect to cloudinary")
 cloudinaryConnect();
 
 //routes

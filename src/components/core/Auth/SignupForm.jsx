@@ -37,6 +37,14 @@ function SignupForm() {
     }))
   }
 
+  function isLetters(input) {
+    return /^[a-zA-Z]+$/.test(input);
+  }
+
+  function isEmail(input){
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(input);
+  }
+
   // Handle Form Submission
   const handleOnSubmit = (e) => {
     e.preventDefault()
@@ -45,6 +53,23 @@ function SignupForm() {
       toast.error("Passwords Do Not Match")
       return
     }
+
+    if(!isLetters(firstName)){
+      toast.error("First name should be letters")
+      return
+    }
+
+    if(!isLetters(lastName)){
+      toast.error("Last name should be letters")
+      return
+    }
+
+    if(!isEmail(email)){
+      toast.error("Email syntax wrong");
+      return
+    }
+
+
     const signupData = {
       ...formData,
       accountType,

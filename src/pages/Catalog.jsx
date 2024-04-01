@@ -26,6 +26,7 @@ const Catalog = () => {
             setCategoryId(category_id);
         }
         getCategories();
+        console.log(catalogName);
     },[catalogName]);
 
     useEffect(() => {
@@ -42,7 +43,7 @@ const Catalog = () => {
         if(categoryId) {
             getCategoryDetails();
         }
-        
+        console.log(categoryId);
     },[categoryId]);
 
 

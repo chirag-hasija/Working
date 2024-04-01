@@ -37,6 +37,8 @@ exports.signup = async (req, res) => {
         message: "All Fields are required",
       })
     }
+
+
     // Check if password and confirm password match
     if (password !== confirmPassword) {
       return res.status(400).json({
@@ -180,8 +182,13 @@ exports.login = async (req, res) => {
 }
 // Send OTP For Email Verification
 exports.sendotp = async (req, res) => {
+  console.log("We are in the send otp function now")
+  console.log(req.body);
   try {
-    const { email } = req.body
+    const {
+      email
+    } = req.body
+
 
     // Check if user is already present
     // Find user with provided email
